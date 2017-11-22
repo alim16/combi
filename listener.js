@@ -12,9 +12,9 @@ const abi = JSON.parse('[{"constant":false,"inputs":[],"name":"getOwnerAddress",
 MyContract = web3.eth.contract(abi);
 
     //!!set to accounts[0]
-  web3.eth.defaultAccount='0xd8e51fea15c3b6a36c57a0508f6c77f2a77032ec'
+  web3.eth.defaultAccount='0x971a01b61d586594d13d8608f2449d576ec2a931'
 
-var contract = web3.eth.contract(abi).at('0xd11e939b9a69a61f6c5a1dec51edeadbac42598b');
+var contract = web3.eth.contract(abi).at('0xa2fe1b197d0ca30d8acdc869c8381304306fad0e');
 
  //set up listener for the Transfer Event
 contract.Transfer().watch( (err, response) => { 

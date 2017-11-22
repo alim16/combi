@@ -11,13 +11,13 @@ export const payEth = (amount) =>{
   }
 
   
-
-  const OWNER_ADDRESS='0xd8e51fea15c3b6a36c57a0508f6c77f2a77032ec' //set to accs[1]
+ //set to accs[1]
+  const OWNER_ADDRESS='0x7c22de5d3ddf4d62ef520ffe5a83bde74aa1157b'
 
     //!!set to accounts[0]
-  web3.eth.defaultAccount='0xe9450b5c8767b15fd8871e7f169e6700c65ded07'
+  web3.eth.defaultAccount='0x971a01b61d586594d13d8608f2449d576ec2a931'
 
- var PayContract= new web3.eth.Contract(abi, '0xd11e939b9a69a61f6c5a1dec51edeadbac42598b', {
+ var PayContract= new web3.eth.Contract(abi, '0xa2fe1b197d0ca30d8acdc869c8381304306fad0e', {
     from: OWNER_ADDRESS, // default from address //owner_address
     gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
 });
