@@ -5,8 +5,9 @@ const abi = JSON.parse('[{"constant":false,"inputs":[],"name":"getOwnerAddress",
 const piAddress = '192.168.43.178'
 const remoteScriptName = 'WORKING_STEPPER.js'
 
+/*******!NOTE the ssh part works without password because a key is setup on the raspberry pi beforehand**/
 
-const contractAddress= '0xd934db2b2bfe8f5f2bc9186f4c89a2ad821b7ce1'
+const contractAddress= '0x32b81d7e21bcc7b761e13cad8767293ac68b8e33'
 
   if (typeof web3 !== 'undefined') {
     console.log('web3 detected')
@@ -17,14 +18,14 @@ const contractAddress= '0xd934db2b2bfe8f5f2bc9186f4c89a2ad821b7ce1'
 MyContract = web3.eth.contract(abi);
 
     //!!set to accounts[0]
-  web3.eth.defaultAccount='0xfcf45b2d2d460f66bd5d4c3dc30ef0a69836548b'
+  web3.eth.defaultAccount='0x24157709d1b19701a77fde6e8f4ad3ca0258286f'
 
 var contract = web3.eth.contract(abi).at(contractAddress);
 
  //set up listener for the Transfer Event
 contract.Transfer().watch( (err, response) => { 
-        //once the event has been detected, take actions as desired
+        //once the event has been detected, call stepper motor script with value from input field
          console.log("a value of: "+response.args._value+" has been sent")
-         exec(`node ${remoteScriptName}`, `pi@${piAddress}`).pipe(process.stdout)
+         exec(`node ${remoteScriptName} ${response.args._value}`, `pi@${piAddress}`).pipe(process.stdout)
 });
 

@@ -4,4 +4,4 @@ is really slow)
 2: change listener to pass the value entered in the form field to the stepper motor script
 and update the motor script to set the max spin value to match what was passed in by the listener
 
-3: add validation to input field (max 1000 and min > 0)
+3: add validation to input field (max 1000 and min > 0), using incomplete reducer
